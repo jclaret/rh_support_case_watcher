@@ -10,8 +10,9 @@ Watcher uses the Red Hat Support API to perform the operations mentioned above. 
 
 Watcher accepts the following command-line parameters:
 
-|Parameter|Description|Example|
-|help|Show help for subcommands|watcher.py help
+ Parameter | Description | Example |
+| ---------- | ---------- | ---------- |
+| help  | Show help for subcommands  | watcher.py help |
 |list|List the given users and support cases as watchers|watcher.py list --users john.doe jane.smith --cases 123456 789012|
 |add|Add the given users as watchers to the given support cases|watcher.py add --users john.doe jane.smith --cases 123456 789012|
 |del|Delete the given users as watchers to the given support cases|watcher.py del --users john.doe jane.smith --cases 123456 789012|
