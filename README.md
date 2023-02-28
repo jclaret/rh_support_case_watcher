@@ -2,9 +2,11 @@
 
 ## Description
 
-Watcher is a Python script that allows you to check whether certain users and support cases are watchers on the Red Hat Customer Portal. The script also allows you to add or delete users as watchers to the specified support cases.
+Watcher is a Python script that allows you to check whether certain users and support cases are watchers on the Red Hat Customer Portal. Also allows you to add or delete users as watchers to the specified support cases.
 
-Watcher uses the Red Hat Support API to perform the operations mentioned above. It is important to note that the script can only work if you provide it with valid credentials.
+Watcher uses the Red Hat Support API to perform the operations mentioned above. It is important to note that the script can only work if you provide it with valid credentials/token to authenticate the calls to APIs for Red Hat services. 
+
+See [Requirements](#requirements) and [Red Hat API References](#red-hat-api-references).
 
 ## Parameters
 
@@ -42,7 +44,8 @@ Install Python packages with pip and requirements.txt
 pip install -r requirements.txt
 ```
 
-Get offline token from https://access.redhat.com/management/api and export as follows:
+Generate an offline token here [Red Hat API Tokens](https://access.redhat.com/management/api) to authenticate the calls to APIs for Red Hat services. It will expire after 30 days of inactivity.
+
 ```
 export API_OFFLINE_TOKEN=<your_token>
 ```
@@ -88,3 +91,12 @@ To delete users and support cases watchers from an input file:
 ```
 wtc.py del --file list.json
 ```
+
+## Red Hat API References
+
+See below Red Hat API references  
+ 
+- [Getting started with Red Hat APIs](https://access.redhat.com/articles/3626371)
+- [Swagger Documentation](https://access.redhat.com/management/api/case_management)
+- [Red Hat API Tokens](https://access.redhat.com/management/api)
+- [Migrating scripts to use supported Customer Portal APIs](https://access.redhat.com/articles/6873281)
