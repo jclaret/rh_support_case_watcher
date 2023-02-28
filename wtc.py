@@ -1,7 +1,7 @@
 #! /usr/bin/python -W ignore
 '''
 This script allows you to check whether certain users and support cases are watchers on the Red Hat Customer Portal.
-The script also allows you to add or delete users as watchers to the specified support cases
+Also allows you to add or delete users as watchers to the specified support cases
 
 Examples
 $ export API_OFFLINE_TOKEN=<your_token> # Get your token https://access.redhat.com/management/api
@@ -180,7 +180,7 @@ class Wtc:
     def main(self):
         args = self.parser.parse_args()
         if args.subcommand == 'help':
-            self.show_help(args)
+            self.parser.print_help()
         elif args.subcommand == 'list':
             self.handle_watchers(args, 'list')
         elif args.subcommand == 'add':

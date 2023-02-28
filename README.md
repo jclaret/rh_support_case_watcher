@@ -34,16 +34,29 @@ JSON file example:
 }
 ``` 
 
-## Examples
+## Requirements
+
+Install Python packages with pip and requirements.txt
+
+```
+pip install -r requirements.txt
+```
 
 Get offline token from https://access.redhat.com/management/api and export as follows:
 ```
 export API_OFFLINE_TOKEN=<your_token>
 ```
 
+## Examples
+
 To show help for the subcommands:
 ```
 wtc.py help
+```
+
+To show help for the subcommands:
+```
+wtc.py help list
 ```
 
 To list users and support cases as watchers:
@@ -61,7 +74,17 @@ To add users as watchers to the given support cases:
 wtc.py add --users john.doe jane.smith --cases 123456 789012
 ```
 
+To add users and support cases watchers from an input file:
+```
+wtc.py add --file list.json
+```
+
 To delete users as watchers from the given support cases:
 ```
 wtc.py del --users john.doe jane.smith --cases 123456 789012
+```
+
+To delete users and support cases watchers from an input file:
+```
+wtc.py del --file list.json
 ```
