@@ -8,16 +8,33 @@ Watcher uses the Red Hat Support API to perform the operations mentioned above. 
 
 ## Parameters
 
-Watcher accepts the following command-line parameters:
+Watcher (wtc) accepts the following command-line parameters:
 
- Parameter | Description | Example |
-| ---------- | ---------- | ---------- |
-| help  | Show help for subcommands  | watcher.py help |
-|list|List the given users and support cases as watchers|watcher.py list --users john.doe jane.smith --cases 123456 789012|
-|add|Add the given users as watchers to the given support cases|watcher.py add --users john.doe jane.smith --cases 123456 789012|
-|del|Delete the given users as watchers to the given support cases|watcher.py del --users john.doe jane.smith --cases 123456 789012|
+ Subcommands | Description | 
+| ---------- |  ---------- | 
+| help  | Show help for subcommands  |
+|list| List the given users and support cases as watchers|
+|add|Add the given users as watchers to the given support cases|
+|del|Delete the given users as watchers to the given support cases|
 
-## Example
+Options:
+
+`--users` or `-u`: List of user IDs
+
+`--cases` or `-c`: List of case IDs
+
+`-f` or `--filename`: Name of the input file with user and case IDs.
+
+JSON file example:
+
+```
+{
+  "users": ["user1", "user2"],
+  "cases": ["case1", "case2"]
+}
+``` 
+
+## Examples
 
 Get offline token from https://access.redhat.com/management/api and export as follows:
 ```
@@ -33,6 +50,12 @@ To list users and support cases as watchers:
 ```
 watcher.py list --users john.doe jane.smith --cases 123456 789012
 ```
+
+To list users and support cases watchers from an input file:
+```
+watcher.py list --file list.json
+```
+
 
 To add users as watchers to the given support cases:
 ```
