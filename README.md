@@ -43,26 +43,25 @@ export API_OFFLINE_TOKEN=<your_token>
 
 To show help for the subcommands:
 ```
-watcher.py help
+wtc.py help
 ```
 
 To list users and support cases as watchers:
 ```
-watcher.py list --users john.doe jane.smith --cases 123456 789012
+wtc.py list --users john.doe jane.smith --cases 123456 789012
 ```
 
 To list users and support cases watchers from an input file:
 ```
-watcher.py list --file list.json
+wtc.py list --file list.json
 ```
-
 
 To add users as watchers to the given support cases:
 ```
-watcher.py add --users john.doe jane.smith --cases 123456 789012
+wtc.py add --users john.doe jane.smith --cases 123456 789012
 ```
 
 To delete users as watchers from the given support cases:
 ```
-watcher.py del --users john.doe jane.smith --cases 123456 789012
+wtc.py del --users john.doe jane.smith --cases 123456 789012
 ```
