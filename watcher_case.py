@@ -3,12 +3,15 @@
 This script allows you to check whether certain users and support cases are watchers on the Red Hat Customer Portal.
 Also allows you to add or delete users as watchers to the specified support cases
 
-Examples
+Requirements and Examples:
+
+$ pip install -r requirements.txt
 $ export API_OFFLINE_TOKEN=<your_token> # Get your token https://access.redhat.com/management/api
-$ wtc.py list --users rhn-support-jclaretm --case 03112577
-$ wtc.py list -f file.json
-$ wtc.py add --users rhn-support-jclaretm --case 03112577
-$ wtc.py del --users rhn-support-jclaretm --case 03112577
+$ watcher_case.py list --users rhn-support-jclaretm --case 03112577
+$ watcher_case.py list -f file.json
+$ watcher_case.py add --users rhn-support-jclaretm --case 03112577
+$ watcher_case.py del --users rhn-support-jclaretm --case 03112577
+
 '''
 import os
 import sys
@@ -22,7 +25,7 @@ from datetime import datetime, timedelta
 init(autoreset=True)
 
 
-class Wtc:
+class WatcherCase:
     def __init__(self):
         # Read environment variables for URL and TOKEN
         self.API_URL = os.getenv('REDHAT_API_URL', default="https://api.access.redhat.com/support")
@@ -132,10 +135,14 @@ class Wtc:
         # Check if the user has provided a filename or a list of user and case IDs
         if args.filename:
             # Read the input file with user and case IDs
-            with open(args.filename, 'r') as f:
-                data = json.load(f)
-                users = data.get('users', [])
-                cases = data.get('cases', [])
+            try:
+                with open(args.filename, 'r') as f:
+                    data = json.load(f)
+                    users = data.get('users', [])
+                    cases = data.get('cases', [])
+            except FileNotFoundError:
+                print(Fore.RED + f"[ERROR] - Input file '{args.filename}' not found.")
+                sys.exit(1)
         else:
             users = args.users or []
             cases = args.cases or []
@@ -190,4 +197,4 @@ class Wtc:
 
 
 if __name__ == '__main__':
-    Wtc().main()
+    WatcherCase().main()
