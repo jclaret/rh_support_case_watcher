@@ -54,12 +54,12 @@ export API_OFFLINE_TOKEN=<your_token>
 
 To show help for the subcommands:
 ```
-wtc.py help
+wtc.py --help
 ```
 
 To show help for the subcommands:
 ```
-wtc.py help list
+wtc.py list --help
 ```
 
 To list users and support cases as watchers:
