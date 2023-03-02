@@ -47,7 +47,7 @@ pip install -r requirements.txt
 Generate an offline token here [Red Hat API Tokens](https://access.redhat.com/management/api) to authenticate the calls to APIs for Red Hat services. It will expire after 30 days of inactivity.
 
 ```
-export API_OFFLINE_TOKEN=<your_token>
+export REDHAT_API_TOKEN=<your_token>
 ```
 
 ## Examples
