@@ -107,7 +107,7 @@ class WatcherCase:
         response.raise_for_status()
         case_data = json.loads(response.text).get('notifiedUsers', [])
         # Extract the ssoUsername values
-        sso_usernames = [user['ssoUsername'] for user in case_data]
+        sso_usernames = [user.get('ssoUsername', '') for user in case_data]
         # Add the sso_usernames to the case cache
         self.case_cache[case_id] = sso_usernames
         return sso_usernames
